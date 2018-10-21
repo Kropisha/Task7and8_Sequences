@@ -40,11 +40,32 @@ namespace Tasks7and8
         }
 
         /// <summary>
-        /// This is the standard recursive method of the Fibonacci algorithm.
+        /// Types of menu
+        /// </summary>
+        public enum Menu
+        {
+            /// <summary>
+            /// Represents a Fibonacci task
+            /// </summary>
+            Fibonacci = 4,
+
+            /// <summary>
+            /// Represents task with natural sequence
+            /// </summary>
+            Sequence,
+
+            /// <summary>
+            /// Represents an exit
+            /// </summary>
+            Quit
+        }
+
+        /// <summary>
+        /// Generate the Fibonacci`s sequence.
         /// </summary>
         /// <param name="n"> Is current number of sequence</param>///        
-        /// <returns> The value of sequence</returns>
-        public int Fibb(int n)
+        /// <returns> One of the value of sequence</returns> 
+        public int Fibonacci(int n)
         {
             if (n == 0)
             {
@@ -56,30 +77,32 @@ namespace Tasks7and8
                 return 1;
             }
 
-            return this.Fibb(n - 1) + this.Fibb(n - 2);
+            return this.Fibonacci(n - 1) + this.Fibonacci(n - 2);
         }
 
         /// <summary>
-        /// Print sequence value in range
+        /// Print sequence values in range
         /// </summary>
         /// <param name="left">Min value of range</param>
         /// <param name="right">Max value of range</param>
-        /// <param name="currentString">Current string with Fibonacci sequence</param>
-        public void PrintInRange(int left, int right, out string currentString)
+        /// <returns>String with sequence</returns>
+        public string GetSequenceInRange(int left, int right)
         {
-            currentString = string.Empty;
+            string currentString = string.Empty;
             for (int k = 0; k < right; k++)
             {
-                if (this.Fibb(k) >= left)
+                if (this.Fibonacci(k) >= left)
                 {
-                    if (this.Fibb(k) >= right)
+                    if (this.Fibonacci(k) >= right)
                     {
                         break;
                     }
 
-                    currentString += string.Format(this.Fibb(k) + ", ");
+                   currentString += string.Format(this.Fibonacci(k) + ", ");
                 }
             }
+
+            return currentString;
         }        
     }
 }

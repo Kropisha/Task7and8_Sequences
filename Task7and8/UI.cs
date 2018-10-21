@@ -18,19 +18,19 @@ namespace Tasks7and8
         /// <param name="i">position of user choice(from top)</param>
          public override void UserChoice(int i)
         {
-            if (i == 4)
+            if (i == (int)BusinessLogic.Menu.Fibonacci)
             {
                 Fibonacci fib = new Fibonacci();
                 fib.MenuForFibonacci();
             }
 
-            if (i == 5)
+            if (i == (int)BusinessLogic.Menu.Sequence)
             {
                 Sequence seq = new Sequence();
                 seq.MenuForSequence();
             }
 
-            if (i == 6)
+            if (i == (int)BusinessLogic.Menu.Quit)
             {
                 Environment.Exit(0);
             }

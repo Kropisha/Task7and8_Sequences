@@ -99,9 +99,8 @@ namespace Tasks7and8
                         Console.ResetColor();
                     }
 
-                    string result;
                     BusinessLogic bl = new BusinessLogic();
-                    bl.PrintInRange(left, right, out result);
+                    string result = bl.GetSequenceInRange(left, right);
                     Console.WriteLine(result);
                     Console.WriteLine("Press any key...");
                     Console.ReadKey();
