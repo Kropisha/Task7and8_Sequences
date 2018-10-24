@@ -14,59 +14,17 @@ namespace Tasks7and8
     public class BusinessLogic
     {
         /// <summary>
-        /// Types of user choice
-        /// </summary>
-        public enum UsersAction
-        {
-            /// <summary>
-            /// Represents a reference
-            /// </summary>
-            Help = 1,
-
-            /// <summary>
-            /// Represents a start
-            /// </summary>
-            Program,
-
-            /// <summary>
-            /// Represents a path to main menu
-            /// </summary>
-            Back,
-
-            /// <summary>
-            /// Represents an exit
-            /// </summary>
-            Quit
-        }
-
-        /// <summary>
-        /// Types of menu
-        /// </summary>
-        public enum Menu
-        {
-            /// <summary>
-            /// Represents a Fibonacci task
-            /// </summary>
-            Fibonacci = 4,
-
-            /// <summary>
-            /// Represents task with natural sequence
-            /// </summary>
-            Sequence,
-
-            /// <summary>
-            /// Represents an exit
-            /// </summary>
-            Quit
-        }
-
-        /// <summary>
         /// Generate the Fibonacci`s sequence.
         /// </summary>
         /// <param name="n"> Is current number of sequence</param>///        
         /// <returns> One of the value of sequence</returns> 
         public int Fibonacci(int n)
         {
+            if (n < 0)
+            {
+                throw new ArgumentException("The value should not be less then 0.");
+            }
+
             if (n == 0)
             {
                 return 0;
@@ -88,6 +46,11 @@ namespace Tasks7and8
         /// <returns>String with sequence</returns>
         public string GetSequenceInRange(int left, int right)
         {
+            if (left < 1 && right < 1)
+            {
+                throw new ArgumentException("Range value should not be less then 1.");
+            }
+
             string currentString = string.Empty;
             for (int k = 0; k < right; k++)
             {
@@ -103,6 +66,27 @@ namespace Tasks7and8
             }
 
             return currentString;
-        }        
+        }
+
+        /// <summary>
+        /// Get sequence of natural numbers
+        /// </summary>
+        /// <param name="n">max value</param>
+        /// <returns>string with sequence</returns>
+        public string GetSequence(int n)
+        {
+            if (n < 1)
+            {
+                throw new ArgumentException("Max value should not be less then 1.");
+            }
+
+            string sequence = string.Empty;
+            for (int k = 1; k * k < n; k++)
+            {
+                sequence += (k + ", ");
+            }
+            
+            return sequence;
+        }
     }
 }

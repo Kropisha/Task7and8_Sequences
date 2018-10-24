@@ -5,6 +5,7 @@
 namespace Tasks7and8
 {
     using System;
+    using AgainFibonacci;
     using ShowMenuLib;
 
     /// <summary>
@@ -17,7 +18,7 @@ namespace Tasks7and8
         /// </summary>
         internal void MenuForFibonacci()
         {
-            BusinessLogic.UsersAction action;
+            UsersAction action;
             do
             {
                 UI menu = new UI();
@@ -29,20 +30,20 @@ namespace Tasks7and8
 
                 switch (action)
                 {
-                    case BusinessLogic.UsersAction.Help:
+                    case UsersAction.Help:
                         Console.WriteLine(helper.References(@"..\..\Files\FibRef.txt"));
                         Console.ReadKey();
                         break;
-                    case BusinessLogic.UsersAction.Program:
+                    case UsersAction.Program:
                         this.FibonacciTask();
                         break;
-                    case BusinessLogic.UsersAction.Back:
+                    case UsersAction.Back:
                         UI user = new UI();
                         Console.Clear();
                         menu.ConsoleMenuPaint(user.X, "Fibonacci algoritm", "Numeric sequence");
                         menu.ColourMenu(user.X);
                         break;
-                    case BusinessLogic.UsersAction.Quit:
+                    case UsersAction.Quit:
                         Environment.Exit(0);
                         break;
                     default:
@@ -51,7 +52,7 @@ namespace Tasks7and8
 
                 Console.Clear();
             }
-            while (action != BusinessLogic.UsersAction.Quit);
+            while (action != UsersAction.Quit);
         }
 
         /// <summary>

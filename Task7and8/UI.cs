@@ -5,6 +5,7 @@
 namespace Tasks7and8
 {
     using System;
+    using AgainFibonacci;
     using ShowMenuLib;
 
     /// <summary>
@@ -18,19 +19,19 @@ namespace Tasks7and8
         /// <param name="i">position of user choice(from top)</param>
          public override void UserChoice(int i)
         {
-            if (i == (int)BusinessLogic.Menu.Fibonacci)
+            if (i == (int)Menu.Fibonacci)
             {
                 Fibonacci fib = new Fibonacci();
                 fib.MenuForFibonacci();
             }
 
-            if (i == (int)BusinessLogic.Menu.Sequence)
+            if (i == (int)Menu.Sequence)
             {
                 Sequence seq = new Sequence();
                 seq.MenuForSequence();
             }
 
-            if (i == (int)BusinessLogic.Menu.Quit)
+            if (i == (int)Menu.Quit)
             {
                 Environment.Exit(0);
             }
